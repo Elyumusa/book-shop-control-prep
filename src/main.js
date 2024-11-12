@@ -16,3 +16,4 @@ bookListPresenter.init()
 function handleNewBookButtonClick() {
     bookListPresenter.addBook()
 }
+

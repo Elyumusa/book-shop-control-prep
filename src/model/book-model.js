@@ -13,6 +13,10 @@ export default class BooksModel{
         this._notifyObservers();
         return book;
     }
+    deleteBook(book_id){
+        this.#books=this.#books.filter((book)=>book.id!==book_id)
+        this._notifyObservers();
+    }
 
     addObserver(observer){
         this.#observers.push(observer);

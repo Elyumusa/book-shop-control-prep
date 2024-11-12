@@ -9,13 +9,21 @@ function createBookComponentTemplate(book) {
         <h2>Title: ${title}</h2>
         <p>Author: ${author}</p>
         <p>Genre: ${genre}</p>
+        <button class="delete-button">Delete книгу</button>
         </div>`
     )
 }
 
 export default class BookComponent {
-    constructor({book}) {
+    #handleClick=null
+    #clickHandler=(evt)=>{
+        evt.preventDefault()
+        this.#handleClick()
+    }
+    constructor({book, onDeleteClick}) {
         this.book=book;
+        this.#handleClick=onDeleteClick
+        this.getelement().addEventListener("click",this.#clickHandler)
     }
 
     get template(){
